@@ -1,0 +1,234 @@
+
+
+.add-column {
+  margin-left: 1100px;
+  float: right;
+  margin-top: -50px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.example-section {
+  margin: 12px 0;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #464db2(223, 159, 159);
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #464db2;
+}
+
+.addtask {
+  position: absolute;
+  top: 85px;
+  right: 25px;
+  background-color: #464db2;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #818bb6;
+}
+
+.addtaskIcon {
+  position: absolute;
+  top: 5.8px;
+  right: 8px;
+}
+
+.addColumn {
+  position: fixed;
+  top: 80px;
+  right: 25px;
+  background-color: #464db2;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #818bb6;
+}
+.addColumnIcon {
+  position: absolute;
+  top: 12px;
+  right: 55px;
+  color: black;
+}
+.addColumnName
+{
+  background-color: #464db2;
+  color: rgb(26, 22, 22);
+  float: left;
+  margin-left:20px;
+  letter-spacing: 1px;
+}
+.addColumnButton
+{
+  border-radius: 10px;
+  box-shadow: 0 0 20px #4562da;
+  background-color: white;
+}
+
+.taskname {
+  color: #0f1415;
+  line-height: 30px;
+  height: 60px;
+}
+
+.priorityname {
+  color: black;
+  margin-top: 25px;
+  margin-bottom:15px ;
+}
+
+.duedate
+{
+  color: black;
+  margin-top: 25px;
+  margin-bottom:15px ;
+}
+
+.taskDescription {
+  color: black;
+}
+
+.assigne {
+  color: black;
+  margin-top: 25px;
+  margin-bottom:15px ;
+}
+
+hr {
+  height: 1px;
+  background-color: black;
+  border: none;
+}
+
+.mainDiv1 {
+  width: 260px;
+  /* border-radius: 5px; */
+  box-shadow: 0 0 8px #464db2;
+}
+
+.navlist1 {
+  margin-left: 10px;
+}
+
+.DashboardLandingDiv {
+  position: absolute;
+  top: 300px;
+  left: 30px;
+  animation: animate 5s linear backwards;
+  animation-delay: 0s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.DashboardImage
+{
+  position: absolute;
+  height: 140px;
+  width: 180px;
+  top: -40px;
+  right: -200px;
+}
+
+.DashboardLandingH {
+  letter-spacing: 2px;
+  font-size: 280%;
+  color: #464db2(255, 239, 196);
+}
+
+.DashboardLandingSpan1 {
+  color: #464db2;
+}
+
+.DashboardLandingSpan2 {
+  color: #464db2;
+
+}
+
+.username {
+  color: #865d68;
+}
+
+
+.inputSearch
+{
+  position: absolute;
+  margin:auto;
+  color: #464db2;
+}
+.inputSearchButton
+{
+  position: absolute;
+  right:20px;
+  color: #464db2;
+}
+
+
+.mat-list-base {
+  padding-top: 0.1px;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.mangif
+{
+  position: fixed;
+  bottom: 35px;
+  right: 45px;
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+  height: 55px;
+  width: 55px;
+  box-shadow: 0 0 8px #464db2;
+}
+.tasknamegif
+{
+  float: left;
+  height:40px;
+  width: 40px;
+  position: absolute;
+  top: 80px;
+  left: 10px;
+}
+.example-boundary {
+  width: 400px;
+  height: 240px;
+  max-width: 100%;
+  /* border: dotted #ccc 2px; */
+}
+.cardnamegif
+{
+  float: left;
+  height:35px;
+  width: 35px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+  
+  

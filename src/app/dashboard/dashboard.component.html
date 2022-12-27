@@ -1,0 +1,144 @@
+<!-- <div [hidden]="!this.taskService.hideDashDiv" class="DashboardLandingDiv">
+    <h2 class="DashboardLandingH"><span class="DashboardLandingSpan1">H</span>ello! <span
+        class="username">{{User1.name}}</span><br><br> We<span class="DashboardLandingSpan2">lc</span>ome to Task<span
+        class="DashboardLandingSpan2">Bee</span> Das<span class="DashboardLandingSpan2">hb</span>oard</h2>
+    <img src="../../assets/112-book-morph-lineal.gif" alt="" class="DashboardImage">
+  </div> -->
+  <div [hidden]="this.taskService.hideDashDiv">
+    <div style="display: flex; justify-content: space-between;width:58%;margin-top: 80px;"> 
+      <div style="border:2px;height:45px; background-color: solid black; margin-left: 10px;">
+        <!-- <img src="../../assets/37-approve-checked-simple-lineal.gif" alt="" style="width:44px;height:48px"> -->
+        <span style="margin-left:10px;color:#464db2;font-weight: bolder;font-size: 20px;width: 300px;display: inline;">{{this.taskService.currentproject}}</span>
+      </div>
+       <div style="border:2px;height:45px;width:340px; background-color: solid black;"> 
+        <mat-form-field style="width: 220px;color: #464db2;margin-left: 52px;">
+          
+          <input type="tel" matInput  [matAutocomplete]="auto" style="width: 600px;"
+            [(ngModel)]="search" >
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of this.taskService.cardnameForSearch" [value]="option" style="width: 1000px;">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        
+      </div>
+    </div>
+
+    <mat-divider style="border-top-width: .01px;margin-top: 40px;" [style.width.px]="this.taskService.matDivLen"></mat-divider>
+  
+  
+  
+    <div class="grid-container" style="position: absolute;top: 220px;left: -285px;"
+      [style.width.px]='this.taskService.matDivLen'>
+      <mat-nav-list *ngFor="let name of this.taskService.categories"
+        style="columns: '{{this.taskService.categories.length}}';float:left; margin-left: 300px;">
+        <div style="float:left; position: absolute;" class="mainDiv1">
+          <h2 mat-subheader style="color: #464db2;margin-top: 5px;margin-left:40px;text-decoration: underline;">
+            {{name}}</h2>
+          <button mat-icon-button [matMenuTriggerFor]="CardMenu" aria-label="Example icon-button with a menu"
+            style="position: absolute;top:5px;left:220px">
+            <mat-icon style="color:#464db2">more_vert</mat-icon>
+          </button>
+          <mat-menu #CardMenu="matMenu" style="background-color: #464db2;">
+            <button mat-menu-item style="color: #464db2" (click)="deleteColumn(name)">
+              <mat-icon style="color: #464db2">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+          <mat-nav-list *ngFor="let cardname of this.taskService.taskcards1" class="navlist1" cdkDropList
+            (cdkDropListDropped)="moveTo(cardname.cardName,name)">
+            <mat-card style="height:240px; width:210px;margin-top: 8px; background: #464db2;box-shadow: 0 0 8px #a4aedf;"
+              *ngIf="cardname.category==name" cdkDragBoundary=".example-boundary" cdkDrag>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                style="float: right;">
+                <mat-icon style="color:black">more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" style="background-color: #464db2;">
+                <button mat-menu-item style="color: #464db2" (click)="editcard(cardname.cardName)">
+                  <mat-icon style="color: #464db2">edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item style="color: #464db2" (click)="infoCard(cardname.cardName)">
+                  <mat-icon style="color: #464db2">info</mat-icon>
+                  <span>Info</span>
+                </button>
+              </mat-menu>
+              <mat-card-title class="taskname">{{cardname.cardName}}</mat-card-title>
+              <mat-divider></mat-divider>
+              <mat-card-content class="priorityname">
+                <mat-icon style="float: left;margin-right: 6px;" matTooltip="Priority"> notes</mat-icon>
+                {{cardname.taskPriority}}
+                <div *ngIf="cardname.taskPriority=='HIGH'" style="float: right;margin-right: 10px;">
+                  <mat-icon style="color: yellow;">flag</mat-icon>
+                </div>
+                <div *ngIf="cardname.taskPriority=='LOW'" style="float: right;margin-right: 10px;">
+                  <mat-icon style="color: yellowgreen;">flag</mat-icon>
+                </div>
+                <div *ngIf="cardname.taskPriority=='URGENT'" style="float: right;margin-right: 10px;">
+                  <mat-icon style="color: red;">flag</mat-icon>
+                </div>
+                <div *ngIf="cardname.taskPriority=='NORMAL'" style="float: right;margin-right: 10px;">
+                  <mat-icon style="color: rgb(104, 237, 104);">flag</mat-icon>
+                </div>
+                <div *ngIf="cardname.taskPriority=='NONE'" style="float: right;margin-right: 10px;">
+                  <mat-icon>flag</mat-icon>
+                </div>
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <mat-card-content class="duedate">
+                <mat-icon style="float: left;margin-right: 6px;" matTooltip="Due Date">date_range</mat-icon>
+                {{this.taskService.projectDue}}
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <mat-card-content class="assigne">
+                <mat-icon style="float: left;margin-right: 6px;" matTooltip="Assigned To">perm_contact_calendar</mat-icon>
+                {{cardname.cardAssignee}}
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <div><button mat-flat-button style="float:left; background-color: #464db2;">
+                  <mat-icon matTooltip="MoveBack" (click)="move1(cardname.cardName)" style="color: #101415;">navigate_before</mat-icon>
+                </button></div>
+              <button mat-flat-button style="float:left; background-color: #464db2;">
+                <mat-icon matTooltip="MoveForward" (click)="move(cardname.cardName)" style="color: #101415;">navigate_next</mat-icon>
+              </button>
+              <button mat-flat-button style="background-color: #464db2; float: right; margin-right:7px;">
+                <mat-icon matTooltip="DeleteTask" (click)="delete(cardname.cardName)" style="color: #101415;">delete</mat-icon>
+              </button>
+  
+            </mat-card>
+          </mat-nav-list>
+        </div>
+      </mat-nav-list>
+    </div>
+    <mat-accordion multi>
+      <mat-expansion-panel style="width:200px" [expanded]="step===0" (opened)="setStep(0)" class="addColumn">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="addColumnName" style="font-weight: bold;"> Add Stage
+          </mat-panel-title>
+          <mat-panel-description>
+            <mat-icon class="addColumnIcon">library_add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <mat-form-field appearance="fill" [formGroup]="columnform" style="width: 160px;">
+          <mat-label style="color: rgb(56, 33, 33);">Stage name : </mat-label>
+          <input matInput formControlName="columnname">
+        </mat-form-field>
+  
+        <button mat-button (click)="addcolumn()" class="addColumnButton">Add</button>
+
+
+
+        <!-- <h4>mat select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Favorite animal</mat-label>
+  <mat-select [formControl]="animalControl" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let animal of animals" [value]="animal">
+      {{animal.name}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+  <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+</mat-form-field> -->

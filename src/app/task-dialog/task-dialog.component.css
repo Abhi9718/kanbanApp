@@ -1,0 +1,27 @@
+h2 {
+    text-align: center;
+    text-decoration: underline;
+    color: #6e81d8;
+}
+
+form {
+    text-align: center;
+    background-color: #6e81d8;
+    border-radius: 15px;
+}
+
+.addButton {
+    position: sticky;
+    left: 270px;
+    color: #6e81d8;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #9da6ce;
+    
+}
+
+.close {
+    position: absolute;
+    right: 560px;
+    top: 150px;
+    color: #6e81d8;
+}

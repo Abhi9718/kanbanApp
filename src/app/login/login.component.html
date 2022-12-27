@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+</head>
+<body>
+
+	<mat-toolbar color="primary">
+		<span style="font-size: 18px;"><img class="image1" src="assets\planning.png" alt="Image"></span>
+        <span style="margin-left: 600px; font-weight: bolder; ">KANBAN BOARD</span>
+		<div><div class="SignUp">
+        <button matTooltip="Home" mat-raised-button aria-label="Home Button" style="margin-left: 20px; font-weight: bolder ; border-radius: 12px; " color="warn" routerLink="/">Home</button>
+        <button matTooltip="SignUp" class="SignUp" mat-raised-button aria-label="SignUp Button" style="margin-left: 20px; font-weight: bolder; border-radius: 12px; " color="warn" routerLink="/SignUpView">SignUp</button>
+        <a href="#aboutus"><button style="margin-left: 25px; border-radius: 12px; font-weight: bolder; " matTooltip="About Us" mat-raised-button aria-label="About Us Button" color="warn">About Us</button></a>
+        <a href="#features"><button style="margin-left: 25px; border-radius: 12px; font-weight: bolder; " matTooltip="Features" mat-raised-button aria-label="Features Button" color="warn">Features</button></a>
+	</div>
+</div>
+    </mat-toolbar>
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="email" class="login__input" placeholder="Email" aria-placeholder="Email" formControlName="userEmailID">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" placeholder="Password" aria-placeholder="password" formControlName="userPassword">
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+  
+</body>
+</html>

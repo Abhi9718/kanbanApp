@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+</head>
+<body>
+
+	<mat-toolbar color="primary">
+		<span style="font-size: 18px;"><img class="image1" src="assets\planning.png" alt="Image"></span>
+        <span style="margin-left: 600px; font-weight: bolder; ">KANBAN BOARD</span>
+		<div><div class="SignUp">
+        <button matTooltip="Home" mat-raised-button aria-label="Home Button" style="margin-left: 20px; font-weight: bolder; font-weight: bolder; border-radius: 12px; " color="warn" routerLink="/">Home</button>
+        <button matTooltip="LogIn" class="LogIn" mat-raised-button aria-label="LogIn Button" style="margin-left: 20px; font-weight: bolder; font-weight: bolder; border-radius: 12px; " color="warn" routerLink="/LogInView">LogIn</button>
+		<a href="#aboutus"><button style="margin-left: 25px; border-radius: 12px; font-weight: bolder; " matTooltip="About Us" mat-raised-button aria-label="About Us Button" color="warn">About Us</button></a>
+        <a href="#features"><button style="margin-left: 25px; border-radius: 12px; font-weight: bolder; " matTooltip="Features" mat-raised-button aria-label="Features Button" color="warn">Features</button></a>
+		</div>
+		</div>
+    </mat-toolbar>
+
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" [formGroup]="registerForm" (ngSubmit)="signup()">
+				<div class="login__field">
+			
+					<i class="login__icon fas fa-user"></i>
+					<label class="form-label" for="form3Example1c"></label>
+					<input type="email" required id="form3Example1c" class="login__input" placeholder="Email" aria-placeholder="Email" formControlName="userEmailID">
+					<div *ngIf="f['userEmailID']?.invalid && (f['userEmailID']?.dirty || f['userEmailID']?.touched)">
+                        <div *ngIf="f['userEmailID']?.getError?.('required')" style="color: rgb(231, 160, 27);">
+							*Email is Required!
+                        </div>
+                        <div *ngIf="f['userEmailID']?.getError?.('pattern')" style="color: rgb(231, 160, 27);">
+                          	*Invalid Email!
+                        </div>
+					</div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<label class="form-label" for="form3Example4c"></label>
+					<input type="password" required id="form3Example4c" class="login__input" placeholder="Password" aria-placeholder="password" formControlName="userPassword">
+					<div *ngIf="f['userPassword']?.invalid && (f['userPassword']?.dirty || f['userPassword']?.touched)">
+                        <div *ngIf="f['userPassword']?.getError?.('required')" style="color: rgb(231, 160, 27);">
+                          *Password is Required!
+                        </div>
+						<div *ngIf="f['userPassword']?.getError?.('pattern')" style="color: rgb(231, 160, 27);">
+							*Invalid Password!
+					  	</div>
+                    </div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-user-circle"></i>
+					<label class="form-label" for="form3Example2c"></label>
+					<input type="text" id="form3Example2c" required class="login__input" placeholder="Full Name" aria-placeholder="Full Name" formControlName="userName">
+					<div *ngIf="f['userName']?.invalid && (f['userName']?.dirty || f['userName']?.touched)">
+                        <div *ngIf="f['userName']?.getError?.('required')" style="color: rgb(231, 160, 27);">
+                          *Full Name is Required!
+                        </div>
+                        <div *ngIf="f['userName']?.getError?.('pattern')" style="color: rgb(231, 160, 27);">
+                          *Only Alphabets allowed here
+                        </div>
+                    </div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-globe"></i>
+					<label class="form-label" for="form3Example3c"></label>
+					<input type="text" required id="form3Example3c" class="login__input" placeholder="Address" aria-placeholder="Address" formControlName="address">
+					<div *ngIf="f['address']?.invalid && (f['address']?.dirty || f['address']?.touched)">
+                        <div *ngIf="f['address']?.getError?.('required')" style="color: rgb(231, 160, 27);">
+                          *Address is Required!
+                        </div>
+                    </div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-address-book"></i>
+					<label class="form-label" for="form3Example5c"></label>
+					<input type="tel" required id="form3Example5c" class="login__input" placeholder="Phone Number" aria-placeholder="Phone Number" formControlName="mobileNo">
+					<div *ngIf="f['mobileNo']?.invalid && (f['mobileNo']?.dirty || f['mobileNo']?.touched)">
+                        <div *ngIf="f['mobileNo']?.getError?.('required')" style="color: rgb(231, 160, 27);">
+                          *Mobile Number is Required!
+                        </div>
+                        <div *ngIf="f['mobileNo']?.getError?.('pattern')" style="color: rgb(231, 160, 27);">
+                          *Mobile Number Must be at Least 10 Numbers to 12 Numbers!
+                        </div>
+                    </div>
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Sign Up Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+  
+</body>
+</html>
